@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import SearchBar from "./SearchBar";
+import ProjectSearch from "./ProjectSearch";
 
 //LIB
 import Link from "next/link";
@@ -23,7 +23,7 @@ const Navbar = ({ cities, dropdown_cities }) => {
         </Link>
         <div className="input-group input-group-search me-2 me-md-0">
           {/* <SearchBar changeCity={setCityname} cities={cities} /> */}
-          <SearchSuggest cities={cities} />
+          <ProjectSearch />
           {/* <Link
             href={"/pre-construction-homes/" + cityname.toLowerCase()}
             className="d-none d-md-inline"

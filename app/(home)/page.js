@@ -167,7 +167,10 @@ export default async function Home() {
         <div class="container">
           <div class="row">
             <div class="col-6 col-md-4 col-xl-4">
-              <a class="d-block properti_city" href="/toronto">
+              <Link
+                class="d-block properti_city"
+                href="pre-construction-homes/toronto"
+              >
                 <div class="thumb">
                   <img
                     src="/cities/toronto.jpg"
@@ -181,10 +184,13 @@ export default async function Home() {
                     <p>Explore Toronto's finest New construction condos</p>
                   </div>
                 </div>
-              </a>
+              </Link>
             </div>
             <div class="col-6 col-lg-8 col-xl-8">
-              <a class="d-block properti_city" href="/brampton">
+              <Link
+                class="d-block properti_city"
+                href="pre-construction-homes/brampton"
+              >
                 <div class="thumb">
                   <img
                     src="/cities/brampton.jpg"
@@ -198,10 +204,13 @@ export default async function Home() {
                     <p>Brampton's finest New construction condos</p>
                   </div>
                 </div>
-              </a>
+              </Link>
             </div>
             <div class="col-6 col-lg-8 col-xl-8">
-              <a class="d-block properti_city" href="/etobicoke">
+              <Link
+                class="d-block properti_city"
+                href="pre-construction-homes/etobicoke"
+              >
                 <div class="thumb">
                   <img
                     src="/cities/etobicoke.jpg"
@@ -215,10 +224,13 @@ export default async function Home() {
                     <p>Etobicoke's finest New construction condos</p>
                   </div>
                 </div>
-              </a>
+              </Link>
             </div>
             <div class="col-6 col-md-4 col-xl-4">
-              <a class="d-block properti_city" href="/mississauga">
+              <Link
+                class="d-block properti_city"
+                href="pre-construction-homes/mississauga"
+              >
                 <div class="thumb">
                   <img
                     src="/cities/mississauga.jpg"
@@ -232,7 +244,7 @@ export default async function Home() {
                     <p>Mississauga's finest New construction condos</p>
                   </div>
                 </div>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

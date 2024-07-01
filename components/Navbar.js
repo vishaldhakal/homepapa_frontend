@@ -16,12 +16,12 @@ const Navbar = ({ cities, dropdown_cities }) => {
   };
 
   return (
-    <nav className="navbar navbar-expand-sm navbar-light bg-white py-3 py-md-2 shadow-navbar mb-3 sticky-top">
+    <nav className="navbar navbar-expand-sm navbar-light bg-white  py-md-2  sticky-top">
       <div className="container-fluid justify-content-start">
         <Link href="/" className="logo">
           <img src="/Homepapa.svg" alt="Homepapa logo" className="img-fluid" />
         </Link>
-        <div className="input-group input-group-search me-2 me-md-0">
+        <div className=" me-2 me-md-0">
           {/* <SearchBar changeCity={setCityname} cities={cities} /> */}
           <ProjectSearch />
           {/* <Link
@@ -76,11 +76,11 @@ const Navbar = ({ cities, dropdown_cities }) => {
                 aria-expanded="true"
               >
                 Cities
-                <img
+                {/* <img
                   src="/dropdown.svg"
                   alt="dropdown icon"
                   className="img-fluid dropdown-nav-icon ms-1"
-                />
+                /> */}
               </button>
               <div
                 className="dropdown-menu dropdown-menu-end border-0 show"
@@ -155,12 +155,12 @@ const Navbar = ({ cities, dropdown_cities }) => {
                 Blogs
               </Link>
             </li>
-            <li className="nav-item">
-              <Link href="#mycontact" className="nav-link">
+            <button className=" mybtn ">
+              <Link href="#mycontact" className="nav-link mybtn">
                 Contact
               </Link>
-            </li>
-            <li className="nav-item d-flex flex-column">
+            </button>
+            {/* <li className="nav-item d-flex flex-column">
               <Link
                 href="tel:5878872572"
                 className="btn my-2 my-sm-0 ms-md-3 d-flex text-dark gap-1"
@@ -180,7 +180,7 @@ const Navbar = ({ cities, dropdown_cities }) => {
                   </span>
                 </span>
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

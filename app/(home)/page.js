@@ -5,6 +5,8 @@ import { notFound } from "next/navigation";
 import DolphyAdvantage from "@/components/DolphyAdvantage";
 import InstagramPost from "@/components/InstagramPost";
 import FixedContactButton from "@/components/FixedContactButton";
+import PreconSchema from "@/components/PreconSchema";
+import CondoCard from "@/components/CondoCard";
 
 async function getData(city) {
   const res = await fetch(
@@ -45,81 +47,36 @@ async function getCitiesandProjects() {
   return res.json();
 }
 
-export default async function Home() {
+export default async function Home(props) {
+  const toronto_data = await getData("toronto");
+  const mississauga_data = await getData("mississauga");
+  const edmonton_data = await getData("edmonton");
+  const calgary_data = await getData("calgary");
   let dropdown_cities = await getCitiesandProjects();
+
+  const filteredprojects = (value) => {
+    return dropdown_cities.filter((city) => {
+      return value.includes(city.name);
+    });
+  };
 
   return (
     <>
       <FixedContactButton></FixedContactButton>
+      <div className="bg-image text-center text-white d-flex justify-content-center align-items-center">
+        <h1 className="overlay-text fw-mine ccent-line  big-text text-dark">
+          Top Pre Construction Homes Platform in Canada.
+        </h1>
+        <p className="overlay-text2 ">
+          Stay Updated with the Latest New Construction Home Projects Across
+          Canada.
+        </p>
+      </div>
       <div className="py-3"></div>
       <div className="pt-3">
         <div className="container-fluid2">
-          <div className="d-flex align-items-center justify-content-center">
-            <h2 className="fw-mine ccent-line fs-big fs-1">
-              Top Projects in Homepapa
-            </h2>
-          </div>
-          <div className="d-flex flex-column justify-content-center flex-column align-items-center mb-5">
-            <p className="fs-5 mb-0 text-center">
-              Explore 1000+ current & past new homes communities in Homepapa
-            </p>
-            <Link
-              href={"/pre-construction-homes/calgary"}
-              className="mt-1 text-mine"
-            >
-              Pre construction homes and condos in Canada{" "}
-              <i className="bi bi-arrow-right-short"></i>
-            </Link>
-          </div>
-          {/* <CalgaryCardHome></CalgaryCardHome> */}
-          <div className="pt-5 mt-5"></div>
-
-          <div className="py-3">
-            <div className="d-flex flex-column flex-md-row align-items-center justify-content-center align-items-center">
-              <img src="/topppp.png" alt="Calgary map" className="img-fluid" />
-            </div>
-          </div>
-          <div className="pt-5"></div>
-          <div className="py-2"></div>
-          <div className="py-5 my-2"></div>
-          {/* <div className="d-flex align-items-center justify-content-center">
-            <h2 className="fw-mine ccent-line fs-big fs-1">
-              <Link href={"/greater-toronto-area/"} className="link-black">
-                Toronto
-              </Link>
-            </h2>
-          </div>
-          <div className="d-flex flex-column justify-content-center flex-column align-items-center mb-5">
-            <p className="fs-5 mb-0 text-center">
-              Explore 100+ currently selling & upcoming pre-construction
-              communities in Toronto
-            </p>
-            <Link
-              href={"/pre-construction-homes/toronto"}
-              className="mt-1 text-mine"
-            >
-              More developments in Toronto{" "}
-              <i className="bi bi-arrow-right-short"></i>
-            </Link>
-          </div>
-          <div className="row row-cols-1 row-cols-md-4 row-cols-lg-5 gy-4 gx-3 gx-lg-2">
-            {toronto_data.preconstructions &&
-              toronto_data.preconstructions.slice(0.5).map((item) => (
-                <div className="col" key={item.id}>
-                  <script
-                    key={item.slug}
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{
-                      __html: JSON.stringify(PreconSchema(item)),
-                    }}
-                  />
-                  <CondoCard {...item} />
-                </div>
-              ))}
-          </div>
-          <div className="pt-5"></div>
           <div>
-            <div className="text-center fw-bold fs-3 text-mine">
+            <div className="text-center fw-bold fs-1 text-mine mb-3 fs-big">
               Greater Toronto Area Communities
             </div>
             <div className="py-3">
@@ -162,7 +119,73 @@ export default async function Home() {
                   ))}
               </div>
             </div>
+          </div>
+
+          <div className="py-2"></div>
+          <div className="py-5 my-2"></div>
+          <div className="d-flex align-items-center justify-content-center">
+            <h2 className="fw-mine ccent-line fs-big ">
+              <Link href={"/greater-toronto-area/"} className="link-black">
+                Mississauga
+              </Link>
+            </h2>
+          </div>
+          <div className="d-flex flex-column justify-content-center flex-column align-items-center mb-5">
+            <p className="fs-5 mb-0 text-center">
+              Explore 100+ currently selling & upcoming pre-construction
+              communities in Mississauga
+            </p>
+            <Link
+              href={"/pre-construction-homes/mississauga"}
+              className="mt-1 text-mine"
+            >
+              More developments in Mississauga{" "}
+              <i className="bi bi-arrow-right-short"></i>
+            </Link>
+          </div>
+          <div className="row row-cols-1 row-cols-md-5 row-cols-lg-5 gy-4 gx-3 gx-lg-2">
+            {mississauga_data.preconstructions &&
+              mississauga_data.preconstructions.slice(0.5).map((item) => (
+                <div className="col" key={item.id}>
+                  <script
+                    key={item.slug}
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                      __html: JSON.stringify(PreconSchema(item)),
+                    }}
+                  />
+                  <CondoCard {...item} />
+                </div>
+              ))}
+          </div>
+          {/* <div className="d-flex align-items-center justify-content-center">
+            <h2 className="fw-mine ccent-line fs-big fs-1">
+              Top Projects in Homepapa
+            </h2>
+          </div>
+          <div className="d-flex flex-column justify-content-center flex-column align-items-center mb-5">
+            <p className="fs-5 mb-0 text-center">
+              Explore 1000+ current & past new homes communities in Homepapa
+            </p>
+            <Link
+              href={"/pre-construction-homes/calgary"}
+              className="mt-1 text-mine"
+            >
+              Pre construction homes and condos in Canada{" "}
+              <i className="bi bi-arrow-right-short"></i>
+            </Link>
           </div> */}
+          {/* <CalgaryCardHome></CalgaryCardHome> */}
+          <div className="pt-5 mt-5"></div>
+
+          <div className="py-3">
+            <div className="d-flex flex-column flex-md-row align-items-center justify-content-center align-items-center">
+              <img src="/topppp.png" alt="Calgary map" className="img-fluid" />
+            </div>
+          </div>
+          <div className="pt-5"></div>
+
+          <div className="pt-5"></div>
         </div>
         <div class="container">
           <div class="row">

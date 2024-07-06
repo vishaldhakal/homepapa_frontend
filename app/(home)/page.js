@@ -76,8 +76,10 @@ export default async function Home(props) {
       <div className="pt-3">
         <div className="container-fluid2">
           <div>
-            <div className="text-center fw-bold fs-1 text-mine mb-3 fs-big">
-              Greater Toronto Area Communities
+            <div className="d-flex justify-content-center align-items-center">
+              <h2 className="text-center fs-1 fw-bold text-mine mb-3 fs-big  ">
+                Greater Toronto Area Communities
+              </h2>
             </div>
             <div className="py-3">
               <div className="row row-cols-2 row-cols-md-3 gy-3">
@@ -92,7 +94,7 @@ export default async function Home(props) {
                     "Hamilton",
                     "Oakville",
                   ]).map((city, no) => (
-                    <div className="col-12 col-sm-6 col-md-3 mb-4" key={no}>
+                    <div className=" col-6 col-md-3 mb-4" key={no}>
                       <Link
                         className="link-black"
                         href={`/pre-construction-homes/${city.slug}/`}
@@ -124,7 +126,7 @@ export default async function Home(props) {
           <div className="py-2"></div>
           <div className="py-5 my-2"></div>
           <div className="d-flex align-items-center justify-content-center">
-            <h2 className="fw-mine ccent-line fs-big ">
+            <h2 className="fw-mine ccent-line fs-big d-flex justify-content-center align-items-center">
               <Link href={"/greater-toronto-area/"} className="link-black">
                 Mississauga
               </Link>

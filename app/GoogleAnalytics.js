@@ -1,14 +1,13 @@
 "use client";
 
 import Script from "next/script";
-export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GOOGLE_ID;
 
 const GoogleAnalytics = () => {
   return (
     <>
       <Script
         strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=G-3RRG39B1GP}`}
       ></Script>
       <Script
         strategy="afterInteractive"
@@ -17,9 +16,7 @@ const GoogleAnalytics = () => {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${GA_TRACKING_ID}');
-            gtag('event', 'conversion', {'send_to': '${GA_TRACKING_ID}/ZHdhCLbgg5QZEMDexKs9','value': '${1.0}',
-            'currency': 'CAD'});
+            gtag('config', 'G-3RRG39B1GP');
           `,
         }}
       />

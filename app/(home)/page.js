@@ -82,7 +82,7 @@ export default async function Home(props) {
               </h2>
             </div>
             <div className="py-3">
-              <div className="row row-cols-2 row-cols-md-3 gy-3">
+              <div className="row row-cols-2 row-cols-md-3 gy-3 gx-5 gx-md-3 px-3">
                 {dropdown_cities &&
                   filteredprojects([
                     "Toronto",
@@ -99,18 +99,16 @@ export default async function Home(props) {
                         className="link-black"
                         href={`/pre-construction-homes/${city.slug}/`}
                       >
-                        <h4 className="fs-m fw-bold text-center">
-                          {city.name}
-                        </h4>
+                        <h4 className="fs-m fw-bold text-start">{city.name}</h4>
                       </Link>
-                      <div className="d-flex justify-content-center flex-column align-items-center">
+                      <div className="d-flex text-start flex-column ">
                         {city.preconstructions &&
                           city.preconstructions.length > 0 &&
                           city.preconstructions
                             .slice(0, 5)
                             .map((project, no) => (
                               <Link
-                                className="fs-small link-black text-center"
+                                className="fs-small link-black text-start"
                                 href={`/pre-construction-homes/${city.slug}/${project.slug}`}
                               >
                                 {project.project_name}

@@ -1905,7 +1905,7 @@ button:focus:not(:focus-visible) {
     bottom: 12px;
     width: 54%;
     left: 10%;
-    transform: translateX(-10%);
+    transform: translateX(18%);
     border-radius: 9px;
     position: fixed;
     z-index: 9999;
@@ -2029,6 +2029,7 @@ button:focus:not(:focus-visible) {
   right: 20px;
   width: 80px;
   z-index: 99999999 !important;
+  display: none;
 }
 
 @media (max-width: 800px) {
@@ -2067,6 +2068,7 @@ button:focus:not(:focus-visible) {
   }
 
   .fixed-whatsapp {
+    display: none;
     position: fixed;
     bottom: 10px;
     right: 10px;
